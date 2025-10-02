@@ -1,0 +1,23 @@
+name: Workflow Sanity Check
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+    
+jobs:
+  check_run:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Say Hello
+        run: |
+          echo "GitHub Action successfully started!"
+          echo "This confirms the workflow is properly configured and runs on the runner."
+          
+      - name: List files
+        run: ls -al
